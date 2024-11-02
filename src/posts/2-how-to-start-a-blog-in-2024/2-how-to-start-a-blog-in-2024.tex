@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+
+\usepackage{changepage}
+\usepackage{amsmath}
+\usepackage[a4paper, total={7.25in, 10in}]{geometry}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{hanging}
+\usepackage[document]{ragged2e}
+\usepackage[notes, short, backend=biber]{biblatex-chicago}
+\usepackage{cmsendnotes}
+\usepackage{hyperref}
+
+\addbibresource{2-how-to-start-a-blog-in-2024.bib}
+
+\setlength{\parindent}{0pt}
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\parskip}{1em}
+
+\newcommand{\BExcerpt}{}
+\newcommand{\EExcerpt}{}
+
+\title{How To Start a Blog in 2024}
+\date{2 November 2024}
+
+\begin{document}
+    \maketitle
+
+    \BExcerpt
+    The internet has been steeped for years in a sort of technological disillusionment -- particularly when it comes to written social media. Short-to-medium-form text-based posting sites -- Twitter, Tumblr, Reddit, a few mainstream derivatives and imitators -- are seen as centralized and impersonal, as engagement factories overrun with the same posts quoted, copied, or stolen from each other ad nauseam. This is contrasted in large part with a nostalgic view of the ``old internet,'' a space dominated by individually-run websites, usually handwritten HTML hosted by free or low-cost providers like Angelfire or GeoCities. Although I'm condensing a lot of history here -- we don't have time to get into the ways sites like BlogSpot, Facebook, and LiveJournal appeared before becoming the various ghost towns and fascist hellscapes they are today, nor are we really concerned with litigating the division between the so-called ``Web 1.0'' and ``Web 2.0.'' 
+    \EExcerpt
+
+    Likewise, reasons for this disillusionment are to an extent self-evident, and even if you aren't an active user of any of these websites, you probably have a good intuition for what they're like. Content is monetized to the fullest extent permitted by the platform, or simply serves to direct an audience towards other, more profitable platforms. This monetization scheme is based on ``engagement,'' a metric indifferent to artistry, sincerity, and factual correctness while favoring disinformation, controversial or outrageous takes, unoriginality, and low-effort spam. Maybe I'm wrong, but I feel like everyone more-or-less understands this. The obstacles to reverting to a Web 1.0 paradigm of low-tech, handcrafted blogs are equally predictable -- such blogs require somewhat more technical knowledge and a significant time investment to create, may require fees to host, and, perhaps most importantly, will be entirely bereft of readers unless promoted on the same social media sites one was hoping to escape. 
+
+    In 2021, I started taking Adderall to treat my ADHD -- as anyone in the same circumstance knows, pharmacies in the US have been experiencing a shortage of that and similar medications. I was still living in Albuquerque at the time, where the difficulties obtaining my medication were consistent but manageable. As a Schedule II stimulant, amphetamine can be prescribed only in a quantity of up to thirty capsules, once every thirty days. This is an unforgiving system even when it works, as any delay in communication between you and your doctor will result in delays filling the prescription, which invariably result in days which your medication will be missed. Since 2022, most pharmacies would have no inventory of the medication at the time I needed a refill, so I would spend about a week without it before being able to fill it again. Thirty days on, seven days off, thirty days on, etc.
+
+    The first day off would usually be fine -- slight headaches, trouble waking up, trouble sleeping. The second would be worse -- tremors, sweating, shivering, migraines, clear thoughts few and far between. The third would be the worst, but everything would mostly balance out by the fourth. Restarting the medication, however, was always a little more interesting. I take 25mg extended-release amphetamine salt capsules -- not a high dose, per se, but significantly higher than the 5mg dose usually taken when one is just beginning. Without titrating up to the higher dose, the first three days after restarting the medication would be unsustainably \textit{wonderful}. I barely slept and barely ate because I didn't need to. I could talk for hours during the day and, when alone at night, would conceive, work on, and complete a new creative project. And, I think they were always, after some revision with a clearer mind, good -- or, at least, as good as anything else I was writing in my early twenties. 
+
+    In New York, the system is worse -- instead of getting a prescription from any physician, you have to see a psychiatrist, usually not covered by your insurance, either in person or via telehealth, once every thirty days. The pill shortage is dramatically worse as well -- I had to wait about a year before I found a pharmacy that had my medication in stock. And, as my appointment approached and I prepared to shell out \$350 to be told that I indeed do have the condition that I know I have, I began thinking about what to write.
+
+    The last long work I completed in such a way was never published (although I had intended to), only circulated among some friends and colleagues. And I, like a lot of people, have always felt an intense disinterest in producing ``content'' to be aggregated on some social media platform, but wanted that feeling of having released something into the world. The obstacles, too, seemed surmountable: I had the technical knowledge to do it, and a scheme by which I could do it for free; I was already planning on compensating for a lack of free time with stimulants, and it's not like I had an audience to lose to begin with. 
+
+    From there, I had to establish some design goals and constraints -- I could make the website, sure, but what should it be like? First, posts should be static pages, and the whole site should avoid using JavaScript as much as possible. This was perhaps overkill, but I have enough built-up resentment for the language that this was a very easy decision to make. Second and relatedly, it should be entirely noninteractive. No comments sections, no guestbook, no sharing to social media -- not because I'm above all that but because I just want a space where I can write. Third, it wouldn't be enough to just write the code myself. It should be bespoke, a creation uniquely tailored to the way I write and the work that I do, with all the inefficiencies and problems and inflexibility that come with that. It should be beautiful and cumbersome. 
+
+    During daylight hours, I'm a mathematician, apparently. Accordingly, I do most of my writing in LaTeX, a typesetting language better suited to writing mathematical expressions than any others widely in use. LaTeX is also, you know, bad -- it was created in the 1980s and remains slow, difficult to use, highly customizable while being singularly hard to customize, the kind of software nobody would use on purpose. The original version of LaTeX compiles a \texttt{.tex} source file to a \texttt{.dvi} output file, a format that nobody uses, while more modern versions include \texttt{pdflatex}, which produces a \texttt{.pdf} output file. Incidentally, another program, \texttt{tex4ht}, can compile LaTeX to an HTML output file. 
+
+    For the most part, the HTML produced by \texttt{tex4ht} is acceptable -- it is clean and relatively uncomplicated and, in my opinion, visually appealing. Actually using it, however, is characteristically unwieldy, and really requires some sort of automation to be practical. So, another obstacle emerges -- my laptop has two partitions, one running Windows 10 and one running Linux. Historically, I've used the former for academic work and the latter for anything more technical, usually just software development. Since starting grad school, I've been predictably busy with schoolwork, so much so that I find myself rarely using the Linux installation. Unfortunately, the only real experience I have automating build systems for software is on Linux, so I ---
+
+    Let me cut myself off, for both our benefits -- I'll just pretend I'm using Linux and run my build system with WSL. A third, minor obstacle is that I don't have enough free storage space to have a second installation of LaTeX inside of WSL, so my build system will have to call the Windows version of each LaTeX compilation tool. 
+
+    The classical way to automate building software on Linux is \texttt{make}, a program that lets you define rules for turning source files (``prerequisites'') into output files (``targets''). First written in 1976, \texttt{make} is even older than LaTeX, and has been superseded in most new projects by a multitude of replacements that are easier to use -- but when has that ever stopped me? Now, I make no claim to being any good at writing \texttt{Makefile}s, but want to see it?
+
+\begin{verbatim*}
+.RECIPEPREFIX += #
+POSTS=$(shell find src/posts -name *.tex -exec basename {} .tex \; | tac)
+
+.PHONY: all clean posts cleansite
+
+all: posts site/index.html
+
+define post_rule
+site/posts/$(1)/index.html: src/posts/$(1)/$(1).tex src/posts/post_styler.cfg
+    cd build; \
+    cp ../src/posts/$(1)/$(1).bib .; \
+    latex.exe -interaction=nonstopmode -output-format=dvi ../src/posts/$(1)/$(1).tex; \
+    biber.exe $(1).bcf; \
+    make4ht.exe -c ../src/posts/post_styler.cfg -d ../site/posts/$(1) ../src/posts/$(1)/$(1).tex "fn-in"; \
+    mv ../site/posts/$(1)/$(1).html ../site/posts/$(1)/index.html;
+endef
+
+$(foreach p,$(POSTS),$(eval $(call post_rule,$(p))))
+$(POSTS): %: site/posts/%/index.html
+posts: $(POSTS)        
+\end{verbatim*}
+
+    Here's the first part. There are packages for LaTeX specifically for formatting and highlighting code, all of which I performatively chose not to use in favor of the builtin \texttt{verbatim} environment, which believes that whitespace should no longer be whitespace. And, incidentally, \texttt{make} is so equally unfriendly that it demands indentation by tabs instead of spaces, unless you set the \texttt{.RECIPEPREFIX} to a single space. Those quirks aside, this isn't so bad -- the \texttt{Makefile} finds any \texttt{.tex} source file for a post, and for each one defines a rule that compiles it to a \texttt{.dvi} file, producing a \texttt{.bcf} file which contains more bibliography information, then runs \texttt{make4ht} to create an HTML file as an output. And, for the most part, it works. 
+
+    Unfortunately, I'm told there's more to a blog than a collection of unindexed, disconnected, text-only webpages. The second thing I tasked my \texttt{Makefile} with was to generate a homepage which could automatically list all the posts. From the HTML file we generated for the post above, we needed to first extract the title, date, and an excerpt, and then insert that item into a list on our homepage. Now, there's a tool that's been around since the 1970s that can do this using regular expressions: \texttt{sed}. It works wonderfully for processing text one line at a time, but absolutely fails to handle multi-line text conveniently. Now, I eventually learned that by saving our homepage list elements to a file, \texttt{sed} could insert that file's contents at a specific line in our homepage, which works fine. Here's what it looks like: 
+    
+\begin{verbatim*}
+define write_toc_entry
+_post_title="$$(sed -nE "s/<h2 class='titleHead'>(.+)<\/h2>/\1/p" site/posts/$(1)/index.html)"; \
+_post_dateline="$$(sed -nE "s/<div class='date'><span class='.+'>(.+)<\/span><\/div>/\1/p" site/posts/$(1)/index.html)"; \
+echo "<div class=\"k-post-list-item\" onClick=\"location.href='posts/$(1)'\">\
+<span class=\"k-post-title\">$$_post_title</span>\
+<span class=\"k-post-dateline\">$$_post_dateline</span>\
+<div class=\"k-post-excerpt\"></div>\
+</div>" >> build/toc.htmlfrag;
+endef
+
+site/index.html: src/index.html $(POSTS)
+    rm -f build/toc.htmlfrag; \
+    $(foreach p,$(POSTS),$(call write_toc_entry,$(p))) \
+    sed '/<!--K-POST-LIST-->/r build/toc.htmlfrag' src/index.html > site/index.html
+\end{verbatim*}
+
+    A good solution? No, but that's my whole thing. And, for all its mild acceptability, it took so much time for me to learn what I needed to learn, in that kind of one-off sort of education where I will never remember the technique, only that I have done it before. It was during this prolonged struggle with \texttt{sed} that I asked myself the question -- the same question you have been asking -- why am I doing this? Why am I doing any of this? Why am I making so many inconvenient, honestly bad choices, starting with this website itself and then extending to my entire methodology and its whole implementation? Why would anyone do this on purpose? 
+
+    First, I found this lightly-sourced axios.com listicle\footnote{\url{https://www.axios.com/2024/08/20/adderall-shortage-school-year-start}}, describing the likely causes of the Adderall shortage as increased demand (partially due to telehealth prescriptions during the pandemic) and DEA actions taken against both prescribers and manufacturers. 
+
+    Now, there's a general consensus that demand for controlled stimulant medications has increased, but it's hard to say exactly by how much. In Massachusetts, for example, the CDC found the percentage of sampled health insurance enrollees prescribed any stimulant increased from 3.6\% to 4.1\% between 2016 and 2021\footnote{\url{https://www.cdc.gov/mmwr/volumes/72/wr/mm7213a1.htm}}, while a study commissioned by the DOJ found that the number of stimulant prescriptions dispensed nationwide increased from 50.4 million in 2012 to 79.6 million in 2022.\footnote{\url{https://www.deadiversion.usdoj.gov/drug_chem_info/stimulants/IQVIA_Report_on_Stimulant_Trends_from_2012-2022.pdf}} This is all mildly interesting but essentially irrelevant -- this increase in prescriptions has been gradual and predictable and, importantly, does not in any way exceed the capacity of manufacturers to produce the medication. 
+
+    More amusing are the legal actions taken against prescribers. The listicle links to a \textit{New York Times} article\footnote{\url{https://www.nytimes.com/2024/06/13/well/live/adderall-telehealth-fraud-cdc-risks.html}} discussing a telehealth firm, frustratingly named ``Done, Inc.,'' indicted in the Northern District of California for a multitude of crimes, including ``Conspiracy to Distribute Controlled Substances'' and ``Conspiracy to Commit Health Care Fraud.''\footnote{\url{https://www.justice.gov/criminal/media/1355966/dl}} The folktale version of this is that during the pandemic, it became easier by regulations to prescribe controlled substances after telehealth appointments, leading to the emergence of companies like Done, which, according to the indictment, some customers described as a ``straight up pill mill'' and as a ``scam to sell ADHD drugs and make a lot of fucking money.'' Still, the direct relevance of this is also limited -- I certainly wasn't a customer of Done, and the closing of this particular company doesn't account for difficulties filling prescriptions among anyone seeing a legitimate physician.
+
+    However, the story of Done, Inc. is precisely that of which we're supposed to be afraid. Are doctors pushing stimulants to your kids? Are we seeing the beginning of a new prescription drug abuse epidemic? Are these drugs falling into \textit{the wrong hands}? This is apparently the same fear driving the DEA to investigate and forcibly close drug manufacturing plants -- according to a story in \textit{New York} magazine by James Walsh, the DEA's ``Operation Bottleneck,'' ostensibly designed to curtail poor recordkeeping by these manufacturers, is ``a step towards redemption'' for the same agency's failures monitoring the manufacturers of OxyContin.\footnote{\url{https://nymag.com/intelligencer/article/adderall-shortage-adhd-medication-ascent-pharmaceuticals.html}} The article profiles a particular manufacturer of stimulants and other drugs, Ascent Pharmaceuticals, which was ordered by the DEA in 2023 to stop production entirely. Regardless of the quality of Ascent's paperwork, the fear is the same -- the article quotes Joseph Rannazzisi, a former DEA official, who believes that ``everybody is concerned about the increase in use of stimulants'' and their propensity to be addictive. Walsh credulously repeats tales of ``the cocainelike effect of stimulants,'' implying their potential for abuse, while quoting Keith Connors, a psychologist who developed an early ADHD test in the 1970s, who apparently believes that doctors are ``giving out \dots the medication at unprecedented and unjustified levels.'' 
+
+    Now, were this really the issue, it shouldn't affect me, right? I'm special, one of the elect, deemed by psychologists and psychiatrists to \textit{deserve} amphetamines -- not like those imitators, customers of companies like Done, phonies who saw an advetisement on TikTok and scammed their way into an Adderall prescription. The thing is, what Connors would call a ``justified'' prescription, one the DOJ would call ``medically necessary,'' is an illusion. The DSM is not a manual for medical care, it is a tool for governments and insurance companies to systematize and depersonalize that care. Diagnosis is not a medical necessity but a capitalistic one, a means by which resources are diverted to those who by some metric are entitled them, and, accordingly, away from those who don't. And, for all their fearmongering about a potential epidemic of stimulant addiction, regulatory agencies really only have this one answer -- to declare a select few deserving of care against a backdrop of nobody deserving care by default. 
+
+    That version of the \texttt{Makefile} for this site is not the one I settled on -- when it came to generating excerpts of posts for the homepage, \texttt{sed} was just too impractical. The W3C (the people responsible for HTML standards and also standards for kind of everything on the internet) publishes a tool called \texttt{hxselect}, which can extract particular HTML blocks from a page using CSS selectors. It's only a small compromise -- the tool has been around since at the latest 2000, which for me may as well be the 1970s. And so, I've ended up with something barely functional -- a system that through its haphazard function embodies me and my own barely functional self. 
+    \newpage
+    \printbibliography[title={Bibliography}]
+\end{document}
