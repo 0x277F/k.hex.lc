@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+
+\usepackage{changepage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, total={7.25in, 10in}]{geometry}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{hanging}
+\usepackage[document]{ragged2e}
+\usepackage[style=alphabetic]{biblatex}
+\usepackage{hyperref}
+
+\addbibresource{./1-some-pitfalls-in-bruns-and-herzog-3326.bib}
+\setlength{\parindent}{0pt}
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\parskip}{1em}
+
+\newcommand{\BExcerpt}{}
+\newcommand{\EExcerpt}{}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\projdim}{projdim}
+\DeclareMathOperator{\Hom}{Hom}
+
+\makeatletter
+\DeclareRobustCommand{\rvdots}{%
+  \vbox{
+    \baselineskip4\p@\lineskiplimit\z@
+    \kern-\p@
+    \hbox{.}\hbox{.}\hbox{.}
+  }}
+\makeatother
+
+\title{Some Pitfalls in Bruns and Herzog 3.3.26}
+\date{1 November 2024}
+
+\begin{document}
+    \maketitle
+
+    As far as I have seen, solutions available online for this exercise are either incorrect or incomplete. The problem (3.3.26 in Bruns and Herzog's \textit{Cohen-Macaulay Rings}) is:
+    
+    \BExcerpt
+    \textit{Let \((R, \mathfrak{m}, k)\) be a Gorenstein local ring of dimension \(d\), and \(M\) a finite module of finite projective dimension. Show that \(\Tor_i^R(k, M) = \Ext_R^{d-i}(k,M)\) for all \(i\).}
+    \EExcerpt
+
+    \subsection*{A Solution if \(R\) is Regular}
+    This approach works if we assume that \(R\) is a regular ring, but fails in any case where \(R\) is Gorenstein but not regular. 
+    \begin{proof}
+        Let \(\boldsymbol{x} = x_1, \dots, x_d\) be a regular sequence generating \(\mathfrak{m}\), then consider the Koszul complex \[K_\bullet(\boldsymbol{x}): 0 \to \bigwedge^d F \to \bigwedge^{d-1} F \to \dots \to F \to R \to 0\] where \(F\) is a free module of rank \(d\). By \autocite[Cor. 1.6.14]{BH98}, \(K_\bullet(\boldsymbol{x})\) is a free resolution of \(k\), which is acyclic with respect to the functor \(- \otimes M\), so by definition \(\Tor_i(k, M) = H_i(K_\bullet(\boldsymbol{x}) \otimes M) = H_i(\boldsymbol{x}, M)\), where \(H_i\) is the Koszul homology. However, since we can take an \(M\)-sequence \(y_1, \dots, y_i \in \mathfrak{m}\) for \(i \leq d\), \autocite[Thm. 1.6.16]{BH98} implies that \(H_{d-i}(\boldsymbol{x}, M) = \Ext^i(k, M)\), or, rephrased, \(\Tor_i(k, M) = \Ext^{d-i}(k,M)\).
+    \end{proof}
+
+    However, this technique is not adaptable to the case where \(R\) is Gorenstein but not regular. If we examine the Koszul complex \(K_\bullet(\boldsymbol{x})\) where \(\boldsymbol{x}\) is a maximal \(R\)-sequence, we obtain a free resolution of \(R/(\boldsymbol{x})\), but not of \(k\). Likewise, if we were to take \(\boldsymbol{x}\) to be a generating set of \(\mathfrak{m}\), it could not be a regular sequence. In particular, \autocite[Thm 1.6.17]{BH98} would guarantee that the complex \(K_\bullet(\boldsymbol{x}, M)\) has nonzero homology at some order \(i > 0\), so we would be incapable of forming a resolution of any sort.
+
+    \subsection*{My Solution}
+    A more viable approach is to induct on \(\projdim M\).
+    \begin{proof}
+        Let \(m = \projdim M\) -- if \(m=0\), then \(M\) is projective, hence free (since \(R\) is local), and \(k \otimes M = k^{\oplus r} = \Ext^d(k, M)\), where \(r\) is the rank of \(M\). The latter is equal to \(k^{\oplus r}\) since \(R\) is Gorenstein. 
+
+        Now, suppose that for any finite module \(N\) with \(\projdim N \leq m-1\), \(\Tor_i(k, N) = \Ext^{d-i}(k, N)\). We can obtain such an \(N\) by taking a minimal free resolution of \(M\) \[0 \to F_m \to \dots \to F \to M \to 0\] then cutting it into \[0 \to F_m \to \dots \to F_1 \to N \to 0\] and \[0 \to N \to F \to M \to 0.\] Note that since this resolution was minimal, \(N \subset \mathfrak{m}F\) -- we'll use this later. The first sequence implies that \(\projdim N \leq m-1\), so we apply \(\Hom(k, -)\) and \(k \otimes -\) to obtain: 
+
+        \[\begin{tikzcd}[ampersand replacement=\&]
+            0\ar{d} \& 0\ar{d} \\
+            \Hom(k, N)\ar[equal, green]{r}\ar{d} \& \Tor_d(k, N)\ar{d}\\
+            {\color{red}0=}\Hom(k, F)\ar{d} \& \Tor_d(k, F){\color{red}=0}\ar{d}\\
+            \Hom(k, M)\ar{d} \& \Tor_d(k, M)\ar[dashed]{l}\\
+            \Ext^1(k, N)\ar[equal, green]{r}\ar{d} \& \Tor_{d-1}(k, N)\ar{d}\\
+            {\color{red}0=}\Ext^1(k, F)\ar{d} \& \Tor_{d-1}(k, F){\color{red}=0}\ar{d}\\
+            \rvdots\ar{d} \& \rvdots\ar{d}\\
+            {\color{red}0=}\Ext^{i-1}(k, F)\ar{d} \& \Tor_{d-i+1}(k, F){\color{red}=0}\ar{d}\\
+            \Ext^{i-1}(k, M)\ar{d} \& \Tor_{d-i+1}(k, M)\ar{d}\ar[dashed]{l}\\
+            \Ext^{i}(k, N)\ar[equal, green]{r}\ar{d} \& \Tor_{d-i}(k, N)\ar{d}\\
+            {\color{red}0=}\Ext^{i}(k, F)\ar{d} \& \Tor_{d-i}(k, F){\color{red}=0}\ar{d}\\
+            \rvdots\ar{d} \& \rvdots\ar{d}\\
+            {\color{red}0=}\Ext^{d-1}(k, F)\ar{d} \& \Tor_{1}(k, F){\color{red}=0}\ar{d}\\
+            \Ext^{d-1}(k, M)\ar{d} \& \Tor_{1}(k, M)\ar{d}\ar[dashed, blue, "f"]{l}\\
+            \Ext^d(k, N)\ar[equal, green]{r}\ar{d} \& k \otimes N\ar{d}\\
+            \Ext^d(k, F)\ar{d}\ar[equal, red]{r} \& k \otimes F\ar{d}\\
+            \Ext^d(k, M)\ar{d} \& k \otimes M\ar{d}\ar[dashed, blue, "g"]{l}\\
+            0 \& 0
+            \end{tikzcd}\]
+
+            The green arrows are isomorphisms by our inductive hypothesis, and the equations and arrows in red hold since \(R\) is Gorenstein. Vertically adjacent modules between zeros are isomorphic by exactness, so the dashed isomorphisms are induced by the green arrows. This proves the desired equality for \(i \geq 2\), but we must be careful with the remaining two cases. The maps \(f\) and \(g\) exist since every other horizontal arrow in the diagram is an isomorphism, necessitating that each square is commutative. Having established that \(f\) and \(g\) exist, we can determine that they are isomorphisms by the five lemma, which proves the claim. 
+    \end{proof}
+
+    \newpage
+    \printbibliography[heading=none]
+\end{document}

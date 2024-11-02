@@ -1,0 +1,745 @@
+<!DOCTYPE html> 
+<html lang="en-US" xml:lang="en-US" > 
+<head> <title>Some Pitfalls in Bruns and Herzog 3.3.26</title> 
+<meta  charset="utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1" /> 
+<link rel="stylesheet" type="text/css" href="1-some-pitfalls-in-bruns-and-herzog-3326.css" /> 
+<meta name="src" content="1-some-pitfalls-in-bruns-and-herzog-3326.tex" /> 
+ <script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>  
+<link rel="stylesheet" href="../../k-global.css" type="text/css" /> 
+</head><body 
+>
+<div class="site-header"><a href="../../">←</a></div> 
+    <div class="maketitle">
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+
+<h2 class="titleHead">Some Pitfalls in Bruns and Herzog 3.3.26</h2>
+<div class="author" ></div>
+<br />
+<div class="date" ><span 
+class="cmr-12">1 November 2024</span></div>
+</div>
+<!--l. 45--><p class="noindent" >As far as I have seen, solutions available online for this exercise are either incorrect or incomplete. The problem (3.3.26
+in Bruns and Herzog’s <span 
+class="cmti-10x-x-109">Cohen-Macaulay Rings</span>) is:
+</p>
+<div class="post-excerptable"><span 
+class="cmti-10x-x-109">Let </span><!--l. 48--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>R</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>𝔪</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>k</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math> <span 
+class="cmti-10x-x-109">be a Gorenstein local</span>
+<span 
+class="cmti-10x-x-109">ring of dimension </span><!--l. 48--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>d</mi></mrow></math><span 
+class="cmti-10x-x-109">, and</span>
+<!--l. 48--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math> <span 
+class="cmti-10x-x-109">a finite module of finite</span>
+<span 
+class="cmti-10x-x-109">projective dimension. Show that </span><!--l. 48--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msubsup><mrow 
+><mi class="qopname">Tor</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>i</mi></mrow><mrow 
+><mi 
+>R</mi></mrow></msubsup 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msubsup><mrow 
+><mi class="qopname"> Ext</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>R</mi></mrow><mrow 
+><mi 
+>d</mi><mo 
+class="MathClass-bin" stretchy="false">−</mo><mi 
+>i</mi></mrow></msubsup 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>
+<span 
+class="cmti-10x-x-109">for all </span><!--l. 48--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>i</mi></mrow></math><span 
+class="cmti-10x-x-109">.</span>
+</div>
+<h4 class="likesubsectionHead"><a 
+ id="x1-1000"></a>A Solution if <!--l. 51--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math>
+is Regular</h4>
+<!--l. 52--><p class="noindent" >This approach works if we assume that <!--l. 52--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math> is
+a regular ring, but fails in any case where <!--l. 52--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math>
+is Gorenstein but not regular.
+</p>
+<div class="proof">
+<!--l. 54--><p class="noindent" ><span class="head">
+<span 
+class="cmti-10x-x-109">Proof.</span> </span>Let <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>…</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><msub><mrow 
+><mi 
+>x</mi></mrow><mrow 
+><mi 
+>d</mi></mrow></msub 
+></mrow></math> be a regular
+sequence generating <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>𝔪</mi></mrow></math>,
+then consider the Koszul complex </p><table class="equation-star"><tr><td>
+                                                                                                    
+                                                                                                    
+<!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                           <msub><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">∙</mo></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-punc" stretchy="false">:</mo> <mn>0</mn> <mo 
+class="MathClass-rel" stretchy="false">→</mo><mover class="msup"><mrow 
+><mo  
+>∧</mo>
+  </mrow><mrow 
+><mi 
+>d</mi></mrow></mover 
+><mi 
+>F</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo><mover class="msup"><mrow 
+><mo  
+>∧</mo>
+  </mrow><mrow 
+><mi 
+>d</mi><mo 
+class="MathClass-bin" stretchy="false">−</mo><mn>1</mn></mrow></mover 
+><mi 
+>F</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo><mo 
+class="MathClass-rel" stretchy="false">⋯</mo> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>F</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>R</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn>
+</math></td></tr></table>
+<!--l. 54--><p class="noindent" >where <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>F</mi></mrow></math>
+is a free module of rank <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>d</mi></mrow></math>.
+By [<a 
+ id="x1-1001"></a><a 
+href="#cite.0@BH98">BH98</a>, Cor. 1.6.14], <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">∙</mo></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>
+is a free resolution of <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>,
+which is acyclic with respect to the functor <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">−</mo><mo 
+class="MathClass-bin" stretchy="false">⊗</mo> <mi 
+>M</mi></mrow></math>,
+so by definition <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi class="qopname">Tor</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <msub><mrow 
+><mi 
+>H</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><msub><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">∙</mo></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-bin" stretchy="false">⊗</mo> <mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <msub><mrow 
+><mi 
+>H</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+where <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>H</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+></mrow></math>
+is the Koszul homology. However, since we can take an <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math>-sequence
+<!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>…</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><msub><mrow 
+><mi 
+>y</mi></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+> <mo 
+class="MathClass-rel" stretchy="false">∈</mo><mi 
+>𝔪</mi></mrow></math>
+for <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>i</mi> <mo 
+class="MathClass-rel" stretchy="false">≤</mo> <mi 
+>d</mi></mrow></math>,
+[<a 
+href="#cite.0@BH98">BH98</a>, Thm. 1.6.16] implies that <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>H</mi></mrow><mrow 
+><mi 
+>d</mi><mo 
+class="MathClass-bin" stretchy="false">−</mo><mi 
+>i</mi></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msup><mrow 
+><mi class="qopname"> Ext</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>i</mi></mrow></msup 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+or, rephrased, <!--l. 54--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi class="qopname">Tor</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msup><mrow 
+><mi class="qopname"> Ext</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>d</mi><mo 
+class="MathClass-bin" stretchy="false">−</mo><mi 
+>i</mi></mrow></msup 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>.
+                                                                                                   □
+</p>
+</div>
+<!--l. 57--><p class="noindent" >However, this technique is not adaptable to the case where
+<!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math> is Gorenstein but not regular. If
+we examine the Koszul complex <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">∙</mo></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>
+where <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle></mrow></math> is a maximal
+<!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math>-sequence, we obtain a
+free resolution of <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi><mo 
+class="MathClass-bin" stretchy="false">∕</mo><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>, but
+not of <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi></mrow></math>. Likewise, if we
+were to take <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle></mrow></math> to be a
+generating set of <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>𝔪</mi></mrow></math>,
+it could not be a regular sequence. In particular, [<a 
+href="#cite.0@BH98">BH98</a>, Thm 1.6.17] would guarantee that the complex
+<!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi 
+>K</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">∙</mo></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mstyle mathvariant="bold-italic"><mi 
+>x</mi></mstyle><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math> has nonzero homology
+at some order <!--l. 57--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>i</mi> <mo 
+class="MathClass-rel" stretchy="false">&#x003E;</mo> <mn>0</mn></mrow></math>,
+so we would be incapable of forming a resolution of any sort.
+</p><!--l. 59--><p class="noindent" >
+</p>
+<h4 class="likesubsectionHead"><a 
+ id="x1-2000"></a>My Solution</h4>
+<!--l. 60--><p class="noindent" >A more viable approach is to induct on <!--l. 60--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi class="qopname">projdim</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--><mi 
+>M</mi></mrow></math>.
+</p>
+<div class="proof">
+<!--l. 62--><p class="noindent" ><span class="head">
+                                                                                                    
+                                                                                                    
+<span 
+class="cmti-10x-x-109">Proof.</span> </span>Let <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>m</mi> <mo 
+class="MathClass-rel" stretchy="false">=</mo><mi class="qopname"> projdim</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--><mi 
+>M</mi></mrow></math>
+– if <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>m</mi> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <mn>0</mn></mrow></math>,
+then <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math>
+is projective, hence free (since <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math>
+is local), and <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi> <mo 
+class="MathClass-bin" stretchy="false">⊗</mo> <mi 
+>M</mi> <mo 
+class="MathClass-rel" stretchy="false">=</mo> <msup><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">⊕</mo><mi 
+>r</mi></mrow></msup 
+> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msup><mrow 
+><mi class="qopname"> Ext</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>d</mi></mrow></msup 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>M</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>,
+where <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>r</mi></mrow></math>
+is the rank of <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math>.
+The latter is equal to <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msup><mrow 
+><mi 
+>k</mi></mrow><mrow 
+><mo 
+class="MathClass-bin" stretchy="false">⊕</mo><mi 
+>r</mi></mrow></msup 
+></mrow></math>
+since <!--l. 62--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math>
+is Gorenstein.
+</p><!--l. 64--><p class="noindent" >Now, suppose that for any finite module <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi></mrow></math>
+with <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi class="qopname">projdim</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--><mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">≤</mo> <mi 
+>m</mi> <mo 
+class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></mrow></math>,
+<!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><msub><mrow 
+><mi class="qopname">Tor</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>i</mi></mrow></msub 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>N</mi><mo 
+class="MathClass-close" stretchy="false">)</mo> <mo 
+class="MathClass-rel" stretchy="false">=</mo><msup><mrow 
+><mi class="qopname"> Ext</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--></mrow><mrow 
+><mi 
+>d</mi><mo 
+class="MathClass-bin" stretchy="false">−</mo><mi 
+>i</mi></mrow></msup 
+><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mi 
+>N</mi><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>. We can obtain such an
+<!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi></mrow></math> by taking a minimal
+free resolution of <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>M</mi></mrow></math>
+</p><table class="equation-star"><tr><td>
+<!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                     <mn>0</mn> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <msub><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>m</mi></mrow></msub 
+> <mo 
+class="MathClass-rel" stretchy="false">→</mo><mo 
+class="MathClass-rel" stretchy="false">⋯</mo> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>F</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>M</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn>
+</math></td></tr></table>
+<!--l. 64--><p class="noindent" >then cutting it into </p><table class="equation-star"><tr><td>
+<!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                    <mn>0</mn> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <msub><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mi 
+>m</mi></mrow></msub 
+> <mo 
+class="MathClass-rel" stretchy="false">→</mo><mo 
+class="MathClass-rel" stretchy="false">⋯</mo> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <msub><mrow 
+><mi 
+>F</mi></mrow><mrow 
+><mn>1</mn></mrow></msub 
+> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn>
+</math></td></tr></table>
+<!--l. 64--><p class="noindent" >and </p><table class="equation-star"><tr><td>
+                                                                                                    
+                                                                                                    
+<!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+                                       <mn>0</mn> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>F</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mi 
+>M</mi> <mo 
+class="MathClass-rel" stretchy="false">→</mo> <mn>0</mn><mo 
+class="MathClass-punc" stretchy="false">.</mo>
+</math></td></tr></table>
+<!--l. 64--><p class="noindent" >Note that since this resolution was minimal, <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">⊂</mo><mi 
+>𝔪</mi><mi 
+>F</mi></mrow></math>
+– we’ll use this later. The first sequence implies that <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi class="qopname">projdim</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--><mi 
+>N</mi> <mo 
+class="MathClass-rel" stretchy="false">≤</mo> <mi 
+>m</mi> <mo 
+class="MathClass-bin" stretchy="false">−</mo> <mn>1</mn></mrow></math>,
+so we apply <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi class="qopname">Hom</mi><mo> ⁡<!--FUNCTION APPLICATION--> </mo><!--nolimits--><mo 
+class="MathClass-open" stretchy="false">(</mo><mi 
+>k</mi><mo 
+class="MathClass-punc" stretchy="false">,</mo><mo 
+class="MathClass-bin" stretchy="false">−</mo><mo 
+class="MathClass-close" stretchy="false">)</mo></mrow></math>
+and <!--l. 64--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>k</mi> <mo 
+class="MathClass-bin" stretchy="false">⊗</mo><mo 
+class="MathClass-bin" stretchy="false">−</mo></mrow></math>
+to obtain:
+</p>
+<table class="equation-star"><tr><td>
+                                                                                                    
+                                                                                                    
+<!--l. 66--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="block" class="equation">
+<div class="tikzcd"><img 
+src="1-some-pitfalls-in-bruns-and-herzog-33260x.svg" alt="         0H0H<msup><mrow>Eooxm=mt<<<!--nolimits--> !--nolimits-->(H!--nolimits-->(</mrow><mrow >1kok</mrow></msup >(k,m,,N<M!--nolimits-->(N)k),)F )         0<msub><mrow>T<msub><mrow>T<msub><mrow>T<mooorrr<!--nolimits--><!--nolimits--><!--nolimits--> </mrow><mrow >d</mrow><mrow >d</mrow><mrow >d</mrow></msub >(k</mrow></msub >(k</mrow></msub >(k,,, NFM))=) 0
+
+             i
+         <msup><mrow>Ext<!--nolimits--> </mrow><mrow ></mrow></msup >(k,N )             <msub><mrow>Tor<!--nolimits--> </mrow><mrow >d−i</mrow></msub >(k,N )
+
+
+         0 =<msup><mrow> Ext<!--nolimits--></mrow><mrow >i</mrow></msup >(k,F )         <msub><mrow>Tor<!--nolimits--> </mrow><mrow >d−i</mrow></msub >(k,F )= 0
+
+
+         ...                      ...
+
+
+         0 =<msup><mrow> Ext<!--nolimits--></mrow><mrow >d−1</mrow></msup >(k,F )       <msub><mrow>Tor<!--nolimits--> </mrow><mrow >1</mrow></msub >(k,F )= 0
+
+
+             d−1
+         <msup><mrow>Ext<!--nolimits--> </mrow><mrow >   </mrow></msup >(k,M )          <msub><mrow>Tor<!--nolimits--> </mrow><mrow >1</mrow></msub >(k,M  )
+
+
+         <msup><mrow>Ext<!--nolimits--> </mrow><mrow >d</mrow></msup >(k,N)             k ⊗ N
+
+
+         <msup><mrow>Ext<!--nolimits--> </mrow><mrow >d</mrow></msup >(k,F)             k ⊗ F
+
+
+             d
+         <msup><mrow>Ext<!--nolimits--> </mrow><mrow > </mrow></msup >(k,M )            k ⊗ M
+
+
+fg        0                      0"  /></div>
+</math></td></tr></table>
+                                                                                                    
+                                                                                                    
+<!--l. 87--><p class="noindent" >The green arrows are isomorphisms by our inductive hypothesis, and the equations and arrows in red hold
+since <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>R</mi></mrow></math>
+is Gorenstein. Vertically adjacent modules between zeros are isomorphic by exactness, so the dashed isomorphisms
+are induced by the green arrows. This proves the desired equality for <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>i</mi> <mo 
+class="MathClass-rel" stretchy="false">≥</mo> <mn>2</mn></mrow></math>,
+but we must be careful with the remaining two cases. The maps <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi></mrow></math>
+and <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>g</mi></mrow></math>
+exist since every other horizontal arrow in the diagram is an isomorphism, necessitating that each square is
+commutative. Having established that <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>f</mi></mrow></math>
+and <!--l. 87--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mrow 
+><mi 
+>g</mi></mrow></math>
+exist, we can determine that they are isomorphisms by the five lemma, which proves the claim.                 □
+</p>
+</div>
+<!--l. 90--><p class="noindent" >
+                                                                                                    
+                                                                                                    
+        </p><dl class="thebibliography"><dt id="X0-BH98" class="thebibliography">
+[BH98]  </dt><dd 
+id="bib-1" class="thebibliography">
+        <!--l. 91--><p class="noindent" ><a 
+ id="cite.0@BH98"></a>Winfried Bruns and Jürgen Herzog. <span 
+class="cmti-10x-x-109">Cohen-Macaulay Rings</span>. Cambridge University Press, 1998.</p></dd></dl>
+ 
+</body> 
+</html>
+                                                                                                    
+
+
