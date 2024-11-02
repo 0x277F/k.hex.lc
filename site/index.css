@@ -1,0 +1,42 @@
+body {
+    max-width: 80ch; 
+    margin: 1em auto; 
+    padding: 0.62em;
+    text-align: center;
+}
+
+.k-post-list {
+    text-align: left;
+    padding: 1em;
+}
+
+.k-post-list-item {
+    border-bottom: 1pt solid lightgray;
+    padding-top: 2pt;
+    padding-bottom: 2pt;
+    height: 80pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.k-post-list-item .k-post-title {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.k-post-list-item .k-post-dateline {
+    color: gray;
+    white-space: nowrap;
+}
+
+.k-post-list-item .k-post-excerpt {
+    color: gray;
+    text-overflow: ellipsis;
+    overflow: auto hidden;
+    max-height: inherit;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}

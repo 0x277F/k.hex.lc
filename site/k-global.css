@@ -1,0 +1,21 @@
+body {
+    background-color: whitesmoke;
+}
+
+a {
+    color: #c71050;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.site-header {
+    width: 100%;
+    height: 5%;
+    user-select: none;
+    font-weight: bold;
+    font-size: large;
+}
+
+.tikzcd img {
+    filter: invert(0) !important;
+} 
