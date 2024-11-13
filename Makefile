@@ -1,19 +1,18 @@
-.RECIPEPREFIX += 
 POSTS=$(shell find src/posts -name *.tex -exec basename {} .tex \; | tac)
 
 .PHONY: all clean posts cleansite test
 
 all: posts index.html
-    mkdir -p build
+	mkdir -p build
 
 define post_rule
 posts/$(1)/index.html: src/posts/$(1)/$(1).tex src/posts/post_styler.cfg
-    cd build; \
-    cp ../src/posts/$(1)/$(1).bib .; \
-    latex.exe -interaction=nonstopmode -output-format=dvi ../src/posts/$(1)/$(1).tex; \
-    biber.exe $(1).bcf; \
-    make4ht.exe -c ../src/posts/post_styler.cfg -d ../posts/$(1) ../src/posts/$(1)/$(1).tex "fn-in,mathml,mathjax"; \
-    mv ../posts/$(1)/$(1).html ../posts/$(1)/index.html;
+	cd build; \
+	cp ../src/posts/$(1)/$(1).bib .; \
+	latex.exe -interaction=nonstopmode -output-format=dvi ../src/posts/$(1)/$(1).tex; \
+	biber.exe $(1).bcf; \
+	make4ht.exe -c ../src/posts/post_styler.cfg -d ../posts/$(1) ../src/posts/$(1)/$(1).tex "fn-in,mathml,mathjax"; \
+	mv ../posts/$(1)/$(1).html ../posts/$(1)/index.html;
 endef
 
 $(foreach p,$(POSTS),$(eval $(call post_rule,$(p))))
@@ -29,16 +28,16 @@ echo "<div id=\"$(1)\" class=\"k-post-list-item\" onClick=\"location.href='posts
 endef
 
 index.html: src/index.html $(POSTS)
-    rm -f build/toc.htmlfrag; \
-    $(foreach p,$(POSTS),$(call write_toc_entry,$(p))) \
-    sed '/<!--K-POST-LIST-->/r build/toc.htmlfrag' src/index.html > index.html
+	rm -f build/toc.htmlfrag; \
+	$(foreach p,$(POSTS),$(call write_toc_entry,$(p))) \
+	sed '/<!--K-POST-LIST-->/r build/toc.htmlfrag' src/index.html > index.html
 
 clean: 
-    rm -rf build/*
+	rm -rf build/*
 
 cleansite:
-    rm -rf posts
-    rm -f index.html
+	rm -rf posts
+	rm -f index.html
 
 test:
-    python3 -m http.server 8080
+	python3 -m http.server 8080
