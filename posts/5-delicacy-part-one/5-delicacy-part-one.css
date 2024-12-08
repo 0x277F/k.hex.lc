@@ -1,5 +1,6 @@
  
 /* start css.sty */
+.cmr-10{font-size:90%;}
 .cmr-10x-x-109{}
 .cmbsy-10x-x-109{font-weight: bold;}
 .cmbsy-10x-x-109{font-weight: bold;}
@@ -23,6 +24,10 @@
 .cmsy-6{font-size:54%;}
 .cmr-17{font-size:154%;}
 .cmr-12{font-size:109%;}
+.cmti-10x-x-109{ font-style: italic;}
+.cmr-9{font-size:81%;}
+.cmti-9{font-size:81%; font-style: italic;}
+.cmmi-9{font-size:81%;font-style: italic;}
 p{margin-top:0;margin-bottom:0}
 p.indent{text-indent:0;}
 p + p{margin-top:1em;}
@@ -44,7 +49,7 @@ h1,h2,h3,h4,h5 { line-height:1.2; }
 .sectionHead, likesectionHead { font-size: 1.5157em; }
 .subsectionHead, likesubsectionHead { font-size: 1.3195em; }
 .subsubsectionHead, likesubsubsectionHead { font-size: 1.1487em; }
- @media (prefers-color-scheme: dark) { img[src^="5-twenty-four"]{filter: invert(1); } } 
+ @media (prefers-color-scheme: dark) { img[src^="5-delicacy-part-one"]{filter: invert(1); } } 
 li p.indent { text-indent: 0em }
 li p:first-child{ margin-top:0em; }
 li p:last-child, li div:last-child { margin-bottom:0.5em; }
@@ -161,5 +166,6 @@ table.equation-star { width:100%; }
 mtd.align-odd{margin-left:2em; text-align:right;}
 mtd.align-even{margin-right:2em; text-align:left;}
 dt.printshorthands{float:left; clear:left; margin-right:1em;}
+.rotatebox{display: inline-block;}
 /* end css.sty */
 
