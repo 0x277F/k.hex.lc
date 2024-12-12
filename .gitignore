@@ -8,5 +8,5 @@ build/
 *.log
 *.out
 *.run.xml
-*.synctex.gz
+*.synctex*
 *.pdf
