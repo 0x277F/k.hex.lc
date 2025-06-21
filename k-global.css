@@ -1,9 +1,10 @@
 body {
     background-color: whitesmoke;
+    color: black;
 }
 
 a {
-    color: #c5152f;
+    color: #f43753;
     text-decoration: none;
     font-weight: bold;
 }
@@ -16,6 +17,6 @@ a {
     font-size: large;
 }
 
-.tikzcd img {
+img {
     filter: invert(0) !important;
 } 

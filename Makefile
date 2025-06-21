@@ -1,4 +1,4 @@
-POSTS=$(shell find src/posts -name *.tex -exec basename {} .tex \; | tac)
+POSTS=$(shell find src/posts -name *.tex -exec basename {} .tex \; | sort | tac)
 
 .PHONY: all clean posts cleansite test
 
@@ -9,10 +9,11 @@ define post_rule
 posts/$(1)/index.html: src/posts/$(1)/$(1).tex src/posts/post_styler.cfg
 	cd build; \
 	cp ../src/posts/$(1)/$(1).bib .; \
-	latex.exe -interaction=nonstopmode -output-format=dvi ../src/posts/$(1)/$(1).tex; \
-	biber.exe $(1).bcf; \
-	make4ht.exe -c ../src/posts/post_styler.cfg -d ../posts/$(1) ../src/posts/$(1)/$(1).tex "fn-in,mathml,mathjax"; \
-	mv ../posts/$(1)/$(1).html ../posts/$(1)/index.html;
+	latex -interaction=nonstopmode -output-format=dvi ../src/posts/$(1)/$(1).tex; \
+	biber $(1).bcf; \
+	make4ht -s -c ../src/posts/post_styler.cfg -d ../posts/$(1) ../src/posts/$(1)/$(1).tex "fn-in,mathml,mathjax"; \
+	mv ../posts/$(1)/$(1).html ../posts/$(1)/index.html; \
+	cp ../src/posts/$(1)/*.png ../posts/$(1) 2>/dev/null || :;
 endef
 
 $(foreach p,$(POSTS),$(eval $(call post_rule,$(p))))
@@ -23,7 +24,7 @@ define write_toc_entry
 echo "<div id=\"$(1)\" class=\"k-post-list-item\" onClick=\"location.href='posts/$(1)'\">\
 <span class=\"k-post-title\">$$(cat posts/$(1)/index.html | hxselect -i -c h2.titleHead)</span>\
 <span class=\"k-post-dateline\">$$(cat posts/$(1)/index.html | hxselect -i -c div.date span)</span>\
-<div class=\"k-post-excerpt\">$$(cat posts/$(1)/index.html | hxselect -i -c div.post-excerptable)</div>\
+<div class=\"k-post-excerpt\">$$(cat posts/$(1)/index.html | hxselect -i -c span.post-excerptable)</div>\
 </div>" >> build/toc.htmlfrag;
 endef
 
