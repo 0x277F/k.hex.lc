@@ -10,3 +10,9 @@ build/
 *.run.xml
 *.synctex*
 *.pdf
+*-SAVE-ERROR
+*.gnuplot
+*.table
+*.dat
+*.script
+**/sources/
