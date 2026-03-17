@@ -16,3 +16,5 @@ build/
 *.dat
 *.script
 **/sources/
+.spellng.dic
+

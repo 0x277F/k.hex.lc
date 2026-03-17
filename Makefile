@@ -21,11 +21,11 @@ $(POSTS): %: posts/%/index.html
 posts: $(POSTS)
 
 define write_toc_entry
-echo "<div id=\"$(1)\" class=\"k-post-list-item\" onClick=\"location.href='posts/$(1)'\">\
+echo "<a class=\"plain-anchor\" href=\"posts/${1}\"><div id=\"$(1)\" class=\"k-post-list-item\">\
 <span class=\"k-post-title\">$$(cat posts/$(1)/index.html | hxselect -i -c h2.titleHead)</span>\
 <span class=\"k-post-dateline\">$$(cat posts/$(1)/index.html | hxselect -i -c div.date span)</span>\
 <div class=\"k-post-excerpt\">$$(cat posts/$(1)/index.html | hxselect -i -c span.post-excerptable)</div>\
-</div>" >> build/toc.htmlfrag;
+</div></a>" >> build/toc.htmlfrag;
 endef
 
 index.html: src/index.html $(POSTS)

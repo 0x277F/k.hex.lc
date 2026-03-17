@@ -25,6 +25,10 @@ body {
     font-weight: bold;
 }
 
+.k-site-name {
+    
+}
+
 .k-post-list-item .k-post-dateline {
     color: gray;
     white-space: nowrap;
